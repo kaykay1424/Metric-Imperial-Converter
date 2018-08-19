@@ -22,8 +22,11 @@ app.get("/api/convert",(req,res) => {
     inputUnit = inputUnit.toUpperCase();
   }
   else {
-    inputUnit = inputUnit.toLowerCase();
+    if (inputUnit !== "L") {  
+      inputUnit = inputUnit.toLowerCase();
+    }
   }
+  
   let regex = new RegExp(inputUnit, "i");
   let inputUnitStart = input.search(regex);
   let inputNum = input.slice(0,inputUnitStart);
